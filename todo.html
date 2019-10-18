@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="todo.css">
+<script src="todo.js"></script>
+</head>
+<body>
+<ol id="myList">
+</ol>
+
+<div>
+    <input id="act" type="text" onkeydown="add(event)" style="padding: 20px;">
+</div>
+
+<div class="droptarget" ondrop="drop(event )" ondragover="allowDrop(event, this)" ondragleave ="disallowDrop(event, this)" id="i1">
+<ol id="done">  </ol> 
+</div>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event, this)" ondragleave ="disallowDrop(event, this)" id="i2">
+<ol id="pending"> </ol>
+</div>
+
+</body>
+</html>
