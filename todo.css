@@ -1,8 +1,110 @@
+.dropTargets {
+  width: 100%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
 .droptarget {
     float: left; 
-    width: 200px; 
-    height: 300px;
-    margin: 15px;
-    padding: 10px;
-    border: 1px solid #000000;
-  }
+    width: 45%; 
+    height: 500px;
+    margin: 1.5%;
+    padding: .5%;
+    border: 3px solid #000000;
+    overflow:auto;  
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+table {
+  float: left;
+  align-self: center;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin: 1%;
+  width: 98%;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  color: blue;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+body {
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 1rem;
+}
+
+input {
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+h2 {
+  text-align: center;
+  font-weight: bolder;
+  color: crimson;
+}
+
+.activityList {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 1%;
+}
+
+label {
+  background: burlywood;
+  font-weight: bolder;
+  font-size: .9rem;
+  float: left;
+}
