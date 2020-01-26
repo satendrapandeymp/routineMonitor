@@ -7,31 +7,30 @@
 
     <body>
     
-    <div>
+    <div id="navbar">
         <ul>
-            <li style="float: left;"><a class="active" href="#home">Home</a></li>
-            <li style="float: left;"><a href="#newTask">newTask</a></li>
-            <li style="float: left;"><a href="#contact">Contact</a></li>
-            <li style="float: right;"><a href="#contact">Contact</a></li>
+            <li style="float: left;"><a class="active" href="#sprint">Sprint</a></li>
+            <li style="float: right;"><a href="#addNewBook">BookList</a></li>
         </ul>
     </div>              
 
-    <div class="activityList">
-            <label for="myActivityList"> Header</label>
-            <table id="myActivityList">
+
+    <div class="activityList" id="addNewActivity">
+            <h2 id="sprint"> <u>Existing Tasks to schedule </u> </h2>
+            <table id="myBookList" class="myActivityList">
                     <tr>
-                      <th style="width: 20%;">Task Name</th>
-                      <th style="width: 30%;">Task Description</th>
-                      <th >Data</th>
+                      <th style="width: 25%;">Task Name</th>
+                      <th style="width: 50%;">Task Description</th>
+                      <th >End Date</th>
                     </tr>
             </table>
 
-            <label for="newTask"> Add new task</label>
+            <h2> <u>Add a new task </u> </h2>
             <table id="newTask">
-                    <tr onkeydown="addNewActivity(event)">
-                      <th style="width: 20%;"><input id="taskName" type="text" ></th>
-                      <th style="width: 30%;"><input id="taskDesc" type="text"  ></th>
-                      <th><input id="taskData" type="text" ></th>
+                    <tr onkeydown="addNewBook(event)">
+                      <th style="width: 25%;"><input id="taskName" type="text" placeholder="Task Name"></th>
+                      <th style="width: 50%;"><input id="taskDesc" type="text" placeholder="Task Description" ></th>
+                      <th><input id="taskData" type="text" placeholder="End Date" ></th>
                     </tr>
             </table>
     </div>
@@ -40,29 +39,87 @@
     <div class="dropTargets">
         <div class="droptarget" ondrop="drop(event )" ondragover="allowDrop(event, this)" 
             ondragleave="disallowDrop(event, this)" id="completedTask">
-            <h2> Daily Routine </h2>
+            <h2> <u> Current Sprint  </u> </h2>
             <table id="completedTaskList">
                     <tr>
-                      <th style="width: 20%;">Task Name</th>
-                      <th style="width: 30%;">Task Description</th>
-                      <th >Data</th>
+                      <th style="width: 25%;">Task Name</th>
+                      <th style="width: 50%;">Task Description</th>
+                      <th >End Date</th>
                     </tr>
             </table>
         </div>
     
         <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event, this)"
             ondragleave="disallowDrop(event, this)" id="pendingTask">
-            <h2> Pending Tasks </h2>
+            <h2> <u> Achieved Tasks  </u> </h2>
             <table id="pendingTaskList">
                     <tr>
-                      <th style="width: 20%;">Task Name</th>
-                      <th style="width: 30%;">Task Description</th>
-                      <th >Data</th>
+                      <th style="width: 25%;">Task Name</th>
+                      <th style="width: 50%;">Task Description</th>
+                      <th >End Date</th>
                     </tr>
             </table>
         </div>
 
     </div>
+
+    <div id="sep">
+
+    </div>
+
+    <!-- For maintaining the booklist -->
+    <div class="activityList" id="addNewBook">
+      <h2 id="booklist"> <u>Existing books to be added </u> </h2>
+      <table id="myActivityList">
+              <tr>
+                <th style="width: 25%;">Book Name</th>
+                <th style="width: 50%;">Book Description</th>
+                <th >Rivision No.</th>
+              </tr>
+      </table>
+
+      <h2> <u>Add a new Book </u> </h2>
+      <table id="newTask">
+              <tr onkeydown="addNewActivity(event)">
+                <th style="width: 25%;"><input id="taskName" type="text" placeholder="Book Name"></th>
+                <th style="width: 50%;"><input id="taskDesc" type="text" placeholder="Book Name" ></th>
+                <th><input id="taskData" type="text" placeholder="Book Rivision No."></th>
+              </tr>
+      </table>
+    </div>
+
+    <div class="dropTargets">
+      <div class="droptarget" ondrop="drop(event )" ondragover="allowDrop(event, this)" 
+          ondragleave="disallowDrop(event, this)" id="completedTask1">
+          <h2> <u> Current Book List  </u> </h2>
+          <table id="completedTaskList">
+                  <tr>
+                    <th style="width: 25%;">Book Name</th>
+                    <th style="width: 50%;">Book Description</th>
+                    <th >Rivision No.</th>
+                  </tr>
+          </table>
+      </div>
+  
+      <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event, this)"
+          ondragleave="disallowDrop(event, this)" id="pendingTask1">
+          <h2> <u> Books read Atleast once  </u> </h2>
+          <table id="pendingTaskList">
+                  <tr>
+                    <th style="width: 25%;">Book Name</th>
+                    <th style="width: 50%;">Book Description</th>
+                    <th> Rivision No.</th>
+                  </tr>
+          </table>
+      </div>
+
+  </div>
+
+  </div>
+
+  <div id="sep">
+  
+</div>
 
     </body>
 </html>

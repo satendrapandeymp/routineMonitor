@@ -1,21 +1,15 @@
-
-function addNewActivity(event)
-{
-    if (event.keyCode == 13)
-    {
-        var text = document.getElementById("addActivity").value;
-        var childLength = document.getElementById("myActivityList").childNodes.length;
-        var activity = new newActivity(text, childLengths);
-        document.getElementById("myActivityList").appendChild(activity.activity);
-    }
-}
-
+// A simple event listener for drag and drop
 function dragStart(event) {
   event.dataTransfer.setData("sourceId", event.target.id);
   document.getElementById("completedTask").style.borderColor= "#0000FF";
   document.getElementById("completedTask").style.borderWidth= "5px";
   document.getElementById("pendingTask").style.borderColor= "#0000FF";
   document.getElementById("pendingTask").style.borderWidth= "5px";
+
+  document.getElementById("completedTask1").style.borderColor= "#0000FF";
+  document.getElementById("completedTask1").style.borderWidth= "5px";
+  document.getElementById("pendingTask1").style.borderColor= "#0000FF";
+  document.getElementById("pendingTask1").style.borderWidth= "5px";
 }
 
 function dragend(event, par) {
@@ -24,6 +18,11 @@ function dragend(event, par) {
   document.getElementById("completedTask").style.borderWidth= "3px";
   document.getElementById("pendingTask").style.borderColor= "#000000";
   document.getElementById("pendingTask").style.borderWidth= "3px";      
+
+  document.getElementById("completedTask1").style.borderColor= "#000000";
+  document.getElementById("completedTask1").style.borderWidth= "3px";
+  document.getElementById("pendingTask1").style.borderColor= "#000000";
+  document.getElementById("pendingTask1").style.borderWidth= "3px"; 
 }
 
 function allowDrop(event, par) {
@@ -41,13 +40,10 @@ function drop(event) {
   var row1 = document.getElementById(data);
   var row = row1.cloneNode(true);
   row1.remove();
-  console.log(event.target);
-  //event.target.appendChild(document.getElementById(data));
-//   var li = document.createElement("li");
-//   li.appendChild(row);
   event.target.firstChild.nextSibling.nextSibling.nextSibling.appendChild(row);
 }
 
+// Function for add Activity and append that to the existing list
 function addNewActivity(event)
 {
     if (event.keyCode == 13)
@@ -56,6 +52,17 @@ function addNewActivity(event)
         document.getElementById("myActivityList").appendChild(activity.activity);
     }
 }
+
+// Function for add Activity and append that to the existing list
+function addNewBook(event)
+{
+    if (event.keyCode == 13)
+    {
+        var activity = new newActivity();
+        document.getElementById("myBookList").appendChild(activity.activity);
+    }
+}
+
 
 function deleteActivity(activity) {
   activity.remove();
@@ -84,26 +91,29 @@ class newActivity {
         return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
     }
 
+    createActivity() {
+      var activity = document.createElement("tr");
+      activity.setAttribute("ondragstart", "dragStart(event)");
+      activity.setAttribute("ondragend", "dragend(event, this)");
+      activity.setAttribute("ondblclick", "deleteActivity(this)");
+      activity.setAttribute("draggable", "true");
+      this.activity = activity;
+    }
+
     createElements() {
         var activityTaskName = document.createElement("td");
+        activityTaskName.setAttribute("contenteditable", "true");
         activityTaskName.innerText = this.data.taskName;
         this.activity.appendChild(activityTaskName);
         var activityTaskDesc = document.createElement("td");
+        activityTaskDesc.setAttribute("contenteditable", "true");
         activityTaskDesc.innerText = this.data.taskDesc;
         this.activity.appendChild(activityTaskDesc);
         var activityTaskData = document.createElement("td");
+        activityTaskData.setAttribute("contenteditable", "true");
         activityTaskData.innerText = this.data.taskData;
         this.activity.appendChild(activityTaskData);
       }
-
-    createActivity() {
-        var activity = document.createElement("tr");
-        activity.setAttribute("ondragstart", "dragStart(event)");
-        activity.setAttribute("ondragend", "dragend(event, this)");
-        activity.setAttribute("ondblclick", "deleteActivity(this)");
-        activity.setAttribute("draggable", "true");
-        this.activity = activity;
-    }
 
     setId () {
         var id = "dragtarget" + this.guidGenerator();
@@ -120,3 +130,16 @@ addEventListener("keyup", function(event) {
 if (event.keyCode == 27)
     document.body.style.background = "";
 });
+
+
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+} 

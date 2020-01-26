@@ -1,7 +1,7 @@
 .dropTargets {
   width: 100%;
   margin-left: 1%;
-  margin-right: 1%;
+  margin-right: 1%; 
 }
 
 .droptarget {
@@ -23,7 +23,6 @@ ul {
   overflow: hidden;
   background-color: #333;
   position: -webkit-sticky; /* Safari */
-  position: sticky;
   top: 0;
 }
 
@@ -36,15 +35,13 @@ li a {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   font-weight: bolder;
+  position: sticky;
 }
 
 li a:hover {
   background-color: #111;
 }
 
-.active {
-  background-color: #4CAF50;
-}
 
 table {
   float: left;
@@ -83,16 +80,25 @@ input {
   width: 100%;
   height: 100%;
   border: 0px;
-}
+} 
 
 textarea:focus, input:focus{
   outline: none;
+}
+
+.myActivityList {
+  margin-bottom: 50px;
+}
+
+#sep{
+  margin-top: 2000px;
 }
 
 h2 {
   text-align: center;
   font-weight: bolder;
   color: crimson;
+
 }
 
 .activityList {
@@ -100,6 +106,7 @@ h2 {
   margin-left: 15%;
   margin-right: 15%;
   margin-top: 1%;
+  float: top;
 }
 
 label {
@@ -107,4 +114,22 @@ label {
   font-weight: bolder;
   font-size: .9rem;
   float: left;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  top: 10;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 8px;
+  width:94.8%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 0px;
 }
